@@ -9,10 +9,12 @@ getFiles(dir, [ '.vis','.tbl'])
 .then(files => {
     getNewVList({
         files: files,
-        field: ['ListaCampos','SQL'],
+        field: ['ListaCampos','SQL','ListaEnCaptura'],
         rgx: [
+            //Agregar un excepcion en caso de que solo sea un valor
             /<BR>/gi,
-            /<BR>\s+|<BR>\s+/gi
+            /<BR>\s+|<BR>\s+|<BR>/gi,
+            /<BR>/gi
         ]
     })
 })
